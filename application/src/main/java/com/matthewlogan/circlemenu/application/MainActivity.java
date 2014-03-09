@@ -40,6 +40,7 @@ public class MainActivity extends Activity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt("currentPosition", mCurrentPosition);
+        super.onSaveInstanceState(outState);
     }
 
     // Menu item click
