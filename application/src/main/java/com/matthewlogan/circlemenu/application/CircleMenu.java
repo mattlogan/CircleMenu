@@ -30,6 +30,7 @@ public class CircleMenu extends FrameLayout
     // This is the ListView's listener.  We'll use this to trigger our own.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Subtract one for the "header"
         mListener.onItemClick(position - 1);
     }
 
