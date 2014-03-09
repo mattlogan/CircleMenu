@@ -13,4 +13,4 @@ It also contains its own listener interface which simplifies the click data for 
 One drawback to using a View as a reusable UI component instead of a fragment is that it can't save its state,
 so you'll have to override onSavedInstanceState() in your Activity or Fragment, as I've done in this demo app.
 
-![alt tag](https://raw.github.com/mattlogan/AndroidImageResizer/master/readme-images/skateboarder.png)
+![alt tag](https://raw.github.com/mattlogan/CircleMenu/master/readme-images/skateboarder.png)
