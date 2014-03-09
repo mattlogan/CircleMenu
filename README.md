@@ -16,4 +16,4 @@ as I've done in this demo app.
 To get the full visual effect, it's best to use a transparent or semi-transparent action bar, or no action bar at all.
 In this demo app, there's no action bar -- just a small control in the top left of the screen.
 
-![alt tag](https://raw.github.com/mattlogan/CircleMenu/master/readme-images/skateboarder.png)
+![alt tag](https://raw.github.com/mattlogan/CircleMenu/master/github-assets/skateboarder.png)
