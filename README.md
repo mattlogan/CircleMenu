@@ -17,3 +17,57 @@ To get the full visual effect, it's best to use a transparent or semi-transparen
 In this demo app, there's no action bar -- just a small control in the top left of the screen.
 
 ![alt tag](https://raw.github.com/mattlogan/CircleMenu/master/github-assets/skateboarder.png)
+
+## How to Use
+
+Add a `CircleMenu` to your layout:
+
+```xml
+<com.matthewlogan.circlemenu.library.CircleMenu
+        android:id="@+id/circle_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/circle_menu_background" />
+```
+
+To toggle the menu:
+
+```java
+circleMenu.toggle();
+```
+
+Implement the `CircleMenu.OnItemClickListener` to get notified of item clicks:
+
+```java
+circleMenu.setOnItemClickListener(this);
+````
+
+Respond to clicks in `onItemClick()`.
+
+```java
+@Override
+    public void onItemClick(int position) {
+        // do cool stuff here
+    }
+```
+
+## Customization
+
+You can change the menu background color with the `background` attribute.  Additionaly, you can use the
+`textColor`, `textSize`, and `dividerColor` to further customize your menu.
+
+```xml
+<com.matthewlogan.circlemenu.library.CircleMenu
+        android:id="@+id/circle_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/circle_menu_background"
+        app:textSize="18sp"
+        app:textColor="@color/white"
+        app:dividerColor="@color/white" />
+```
+
+## Sample
+
+See the [sample](https://github.com/mattlogan/CircleMenu/tree/master/sample) for a common use of this library.
+
