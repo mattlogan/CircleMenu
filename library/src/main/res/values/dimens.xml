@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="circle_menu_text">18sp</dimen>
+    <dimen name="circle_menu_item_height">44dp</dimen>
+</resources>

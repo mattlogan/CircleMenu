@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#fff</color>
-    <color name="circle_menu_item">#80a52a2a</color>
+    <color name="circle_menu_background">#80a52a2a</color>
 </resources>

@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":application" />
+        <option name="GRADLE_PROJECT_PATH" value=":sample" />
       </configuration>
     </facet>
     <facet type="android" name="Android">
@@ -56,6 +56,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/instrumentTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/instrumentTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/instrumentTest/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../application/build/bundles" />
+      <excludeFolder url="file://$MODULE_DIR$/../application/build/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/apk" />
       <excludeFolder url="file://$MODULE_DIR$/build/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/bundles" />
@@ -72,6 +74,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="appcompat-v7-19.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.0.0" level="project" />
+    <orderEntry type="module" module-name="library" exported="" />
   </component>
 </module>
 

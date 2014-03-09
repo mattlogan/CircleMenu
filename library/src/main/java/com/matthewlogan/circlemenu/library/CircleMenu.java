@@ -1,7 +1,10 @@
-package com.matthewlogan.circlemenu.application;
+package com.matthewlogan.circlemenu.library;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -10,6 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.matthewlogan.circlemenu.R;
 
 public class CircleMenu extends FrameLayout
         implements AdapterView.OnItemClickListener, Animation.AnimationListener {
@@ -26,6 +32,11 @@ public class CircleMenu extends FrameLayout
 
     private boolean mIsAnimating = false;
     private boolean mIsShowing = true;
+    
+    private int mTextColor;
+    private float mTextSize;
+
+    private int mDividerColor;
 
     // This is the ListView's listener.  We'll use this to trigger our own.
     @Override
@@ -41,6 +52,21 @@ public class CircleMenu extends FrameLayout
 
     public CircleMenu(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        if (attrs != null) {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleMenu, 0, 0);
+            if (a != null) {
+                try {
+                    mTextColor = a.getColor(R.styleable.CircleMenu_textColor, Color.WHITE);
+                    mTextSize = a.getDimensionPixelSize(R.styleable.CircleMenu_textSize, 54);
+                    mDividerColor = a.getColor(R.styleable.CircleMenu_dividerColor, Color.WHITE);
+                } catch (Exception e) {
+                    android.util.Log.e("CircleMenu", "Error while creating the view:", e);
+                } finally {
+                    a.recycle();
+                }
+            }
+        }
 
         mContext = context;
 
@@ -119,6 +145,20 @@ public class CircleMenu extends FrameLayout
                                  String[] objects) {
 
             super(context, resource, textViewResourceId, objects);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = super.getView(position, convertView, parent);
+
+            TextView textView = (TextView) view.findViewById(R.id.circle_menu_item_text);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
+            textView.setTextColor(mTextColor);
+
+            View divider = view.findViewById(R.id.circle_menu_item_divider);
+            divider.setBackgroundColor(mDividerColor);
+
+            return view;
         }
 
         // Makes the top row (presumably underneath an action bar or control of some kind)

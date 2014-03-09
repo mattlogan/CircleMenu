@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.matthewlogan.circlemenu.library.CircleMenu;
+
+
 public class MainActivity extends Activity
         implements CircleMenu.OnItemClickListener, View.OnClickListener {
 

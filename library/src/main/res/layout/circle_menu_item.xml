@@ -2,21 +2,19 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/circle_menu_item_height"
-    android:background="@color/circle_menu_item">
+    android:layout_height="@dimen/circle_menu_item_height">
 
     <TextView
         android:id="@+id/circle_menu_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/circle_menu_text" />
+        android:layout_centerInParent="true" />
 
     <View
+        android:id="@+id/circle_menu_item_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white" />
+        android:background="#fff" />
 
 </RelativeLayout>

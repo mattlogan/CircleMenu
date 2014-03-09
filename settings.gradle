@@ -1,1 +1,2 @@
-include ':application'
+include ':library'
+include ':sample'
