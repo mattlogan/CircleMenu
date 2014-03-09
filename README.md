@@ -53,8 +53,9 @@ Respond to clicks in `onItemClick()`.
 
 ## Customization
 
-You can change the menu background color with the `background` attribute.  Additionaly, you can use the
-`textColor`, `textSize`, and `dividerColor` to further customize your menu.
+You can change the menu background color with the `background` attribute.
+
+Additionally, you can use the `textColor`, `textSize`, and `dividerColor` to further customize your menu:
 
 ```xml
 <com.matthewlogan.circlemenu.library.CircleMenu
