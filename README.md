@@ -46,9 +46,9 @@ Respond to clicks in `onItemClick()`.
 
 ```java
 @Override
-    public void onItemClick(int position) {
-        // do cool stuff here
-    }
+public void onItemClick(int position) {
+    // do cool stuff here
+}
 ```
 
 ## Customization
