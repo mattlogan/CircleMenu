@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme">
-        <item name="android:windowNoTitle">true</item>
+
     </style>
 
 </resources>
