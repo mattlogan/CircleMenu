@@ -6,7 +6,7 @@ android {
 
     buildTypes {
         defaultConfig {
-            minSdkVersion 10
+            minSdkVersion 1
             targetSdkVersion 16
             versionCode 1
             versionName "1.0"
@@ -16,10 +16,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
