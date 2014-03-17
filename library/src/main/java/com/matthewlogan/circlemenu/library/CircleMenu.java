@@ -31,12 +31,14 @@ public class CircleMenu extends FrameLayout
     private Animation mShowAnimation;
 
     private boolean mIsAnimating = false;
-    private boolean mIsShowing = true;
+    private boolean mIsShowing = false;
     
     private int mTextColor;
     private float mTextSize;
 
     private int mDividerColor;
+
+    private boolean mShouldBlockLayout = true;
 
     // This is the ListView's listener.  We'll use this to trigger our own.
     @Override
@@ -73,9 +75,7 @@ public class CircleMenu extends FrameLayout
         setupMenu();
         loadAnimations();
 
-        // The view loads in it's "showing" position, and we animate it away instantaneously
-        // before the view becomes visible.
-        startAnimation(mInitialHideAnimation);
+        setVisibility(View.GONE);
     }
 
     private void setupMenu() {
@@ -87,12 +87,9 @@ public class CircleMenu extends FrameLayout
     }
 
     private void loadAnimations() {
-        mInitialHideAnimation = AnimationUtils.loadAnimation(mContext,
-                R.anim.circle_menu_initial_hide);
         mHideAnimation = AnimationUtils.loadAnimation(mContext, R.anim.circle_menu_hide);
         mShowAnimation = AnimationUtils.loadAnimation(mContext, R.anim.circle_menu_show);
 
-        mInitialHideAnimation.setAnimationListener(this);
         mHideAnimation.setAnimationListener(this);
         mShowAnimation.setAnimationListener(this);
     }
@@ -106,7 +103,9 @@ public class CircleMenu extends FrameLayout
     public void onAnimationEnd(Animation animation) {
         mIsAnimating = false;
         mIsShowing = !mIsShowing;
-        setVisibility(mIsShowing ? View.VISIBLE : View.GONE);
+        if (!mIsShowing) {
+            setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -136,6 +135,7 @@ public class CircleMenu extends FrameLayout
             return;
         }
 
+        setVisibility(View.VISIBLE);
         startAnimation(mIsShowing ? mHideAnimation : mShowAnimation);
     }
 
@@ -168,5 +168,4 @@ public class CircleMenu extends FrameLayout
             return !(position == 0);
         }
     }
-
 }
