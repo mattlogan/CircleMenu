@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class CircleMenu extends FrameLayout
                     mTextSize = a.getDimensionPixelSize(R.styleable.CircleMenu_textSize, 54);
                     mDividerColor = a.getColor(R.styleable.CircleMenu_dividerColor, Color.WHITE);
                 } catch (Exception e) {
-                    android.util.Log.e("CircleMenu", "Error while creating the view:", e);
+                    Log.e("CircleMenu", "Error while creating the view:", e);
                 } finally {
                     a.recycle();
                 }
