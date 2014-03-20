@@ -1,6 +1,8 @@
 CircleMenu
 ==========
 
+<img src="https://raw.github.com/mattlogan/CircleMenu/master/github-assets/skateboarder.png" height="540"/>
+
 Circle's Android application is **really** slick.  I've implemented a slide-down menu similar to the one found in
 their app.
 
@@ -15,8 +17,6 @@ as I've done in this demo app.
 
 To get the full visual effect, it's best to use a transparent or semi-transparent action bar, or no action bar at all.
 In this demo app, there's no action bar -- just a small control in the top left of the screen.
-
-![alt tag](https://raw.github.com/mattlogan/CircleMenu/master/github-assets/skateboarder.png)
 
 ## How to Use
 
