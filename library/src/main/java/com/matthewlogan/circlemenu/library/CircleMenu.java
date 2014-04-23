@@ -27,7 +27,6 @@ public class CircleMenu extends FrameLayout
 
     private OnItemClickListener mListener;
 
-    private Animation mInitialHideAnimation;
     private Animation mHideAnimation;
     private Animation mShowAnimation;
 
@@ -38,8 +37,6 @@ public class CircleMenu extends FrameLayout
     private float mTextSize;
 
     private int mDividerColor;
-
-    private boolean mShouldBlockLayout = true;
 
     // This is the ListView's listener.  We'll use this to trigger our own.
     @Override
