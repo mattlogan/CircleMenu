@@ -170,7 +170,7 @@ public class CircleMenu extends FrameLayout
         // not clickable.
         @Override
         public boolean isEnabled(int position) {
-            return !(position == 0);
+            return position != 0;
         }
     }
 }
