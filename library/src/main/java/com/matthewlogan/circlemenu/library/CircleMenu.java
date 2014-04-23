@@ -119,7 +119,7 @@ public class CircleMenu extends FrameLayout
             itemsWithHeader[i] = (i == 0) ? "" : items[i - 1];
         }
 
-        CircleMenuAdapter<String> adapter = new CircleMenuAdapter<String>(mContext,
+        CircleMenuAdapter adapter = new CircleMenuAdapter(mContext,
                 R.layout.circle_menu_item, R.id.circle_menu_item_text, itemsWithHeader);
         mListView.setAdapter(adapter);
     }
@@ -137,7 +137,7 @@ public class CircleMenu extends FrameLayout
         startAnimation(mIsShowing ? mHideAnimation : mShowAnimation);
     }
 
-    private class CircleMenuAdapter<String> extends ArrayAdapter<String> {
+    private class CircleMenuAdapter extends ArrayAdapter<String> {
 
         public CircleMenuAdapter(Context context, int resource, int textViewResourceId,
                                  String[] objects) {
@@ -148,6 +148,9 @@ public class CircleMenu extends FrameLayout
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = super.getView(position, convertView, parent);
+            if (view == null) {
+                return null;
+            }
 
             TextView textView = (TextView) view.findViewById(R.id.circle_menu_item_text);
             textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
