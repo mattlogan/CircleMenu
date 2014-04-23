@@ -12,19 +12,23 @@ import com.matthewlogan.circlemenu.library.CircleMenu;
 public class MainActivity extends Activity
         implements CircleMenu.OnItemClickListener, View.OnClickListener {
 
-    private int mCurrentPosition;
-
-    private int[] mBackgroundImages = new int[] {
+    private static int[] sBackgroundImages = new int[] {
             R.drawable.hawk_landing_on_post,
             R.drawable.walla_walla_skateboarder,
             R.drawable.windmills
     };
 
-    private String[] mBackgroundImageNames = new String[] {
+    private static String[] sBackgroundImageNames = new String[] {
             "Hawk Landing on Post",
             "Walla Walla Skateboarder",
             "Windmills"
     };
+
+    private int mCurrentPosition;
+
+    private View mMenuButton;
+    private CircleMenu mCircleMenu;
+    private ImageView mBackgroundImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +36,14 @@ public class MainActivity extends Activity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-        getMenuButton().setOnClickListener(this);
+        mMenuButton = findViewById(R.id.menu_button);
+        mCircleMenu = (CircleMenu) findViewById(R.id.circle_menu);
+        mBackgroundImageView = (ImageView) findViewById(R.id.background_image);
 
-        getCircleMenu().setOnItemClickListener(this);
-        getCircleMenu().setItems(mBackgroundImageNames);
+        mMenuButton.setOnClickListener(this);
+
+        mCircleMenu.setOnItemClickListener(this);
+        mCircleMenu.setItems(sBackgroundImageNames);
 
         if (savedInstanceState != null) {
             setBackgroundImage(savedInstanceState.getInt("currentPosition"));
@@ -48,6 +56,12 @@ public class MainActivity extends Activity
         super.onSaveInstanceState(outState);
     }
 
+    private void setBackgroundImage(int position) {
+        mBackgroundImageView.setImageDrawable(
+                getResources().getDrawable(sBackgroundImages[position]));
+        mCurrentPosition = position;
+    }
+
     // Menu item click
     @Override
     public void onItemClick(int position) {
@@ -57,24 +71,6 @@ public class MainActivity extends Activity
     // Menu toggle click
     @Override
     public void onClick(View v) {
-        getCircleMenu().toggle();
-    }
-
-    private void setBackgroundImage(int position) {
-        getBackgroundImage().setImageDrawable(
-                getResources().getDrawable(mBackgroundImages[position]));
-        mCurrentPosition = position;
-    }
-
-    private View getMenuButton() {
-        return findViewById(R.id.menu_button);
-    }
-
-    private CircleMenu getCircleMenu() {
-        return (CircleMenu) findViewById(R.id.circle_menu);
-    }
-
-    private ImageView getBackgroundImage() {
-        return (ImageView) findViewById(R.id.background_image);
+        mCircleMenu.toggle();
     }
 }
