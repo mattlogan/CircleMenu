@@ -2,7 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/circle_menu_item_height">
+    android:layout_height="@dimen/default_item_height">
 
     <TextView
         android:id="@+id/circle_menu_item_text"
@@ -15,6 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:background="#fff" />
+        android:background="@color/default_divider_color" />
 
 </RelativeLayout>

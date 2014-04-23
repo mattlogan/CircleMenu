@@ -1,8 +1,8 @@
 package com.matthewlogan.circlemenu.library;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -55,11 +55,15 @@ public class CircleMenu extends FrameLayout
 
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleMenu, 0, 0);
-            if (a != null) {
+            Resources res = getResources();
+            if (a != null && res != null) {
                 try {
-                    mTextColor = a.getColor(R.styleable.CircleMenu_textColor, Color.WHITE);
-                    mTextSize = a.getDimensionPixelSize(R.styleable.CircleMenu_textSize, 54);
-                    mDividerColor = a.getColor(R.styleable.CircleMenu_dividerColor, Color.WHITE);
+                    mTextColor = a.getColor(R.styleable.CircleMenu_textColor,
+                            getResources().getColor(R.color.default_text_color));
+                    mTextSize = a.getDimensionPixelSize(R.styleable.CircleMenu_textSize,
+                            (int) getResources().getDimension(R.dimen.default_text_size));
+                    mDividerColor = a.getColor(R.styleable.CircleMenu_dividerColor,
+                            getResources().getColor(R.color.default_divider_color));
                 } catch (Exception e) {
                     Log.e("CircleMenu", "Error while creating the view:", e);
                 } finally {
